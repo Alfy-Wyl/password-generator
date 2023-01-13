@@ -5,17 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Password Generator</title>
+    <!--Custom CSS file-->
     <link rel="stylesheet" href="style.css" />
   </head>
+
   <body>
+    <!--Create a div called wrapper to hold the entire information-->
     <div class="wrapper">
+      <!--Header section to hold the main header of the project-->
       <header>
         <h1>Password Generator</h1>
       </header>
+
+      <!--Create a div to contain the sub-header of project-->
       <div class="card">
         <div class="card-header">
           <h2>Generate a Password</h2>
         </div>
+
+        <!--Create a div to hold the area generated password will be displayed-->
         <div class="card-body">
           <textarea
             readonly
@@ -23,12 +31,26 @@
             placeholder="Your Secure Password"
             aria-label="Generated Password"
           ></textarea>
+          
         </div>
+        
+        <!--Footer section to hold Generate Password and Copy buttons -->
         <div class="card-footer">
           <button id="generate" class="btn">Generate Password</button>
         </div>
+
+
+
+        <!--Extra feature in footer to allow user to copy generated password-->
+
+        <div class="card-copy">
+          <button class="copy-result" id="copy">Copy</button>
+        </div>
+
       </div>
     </div>
+
+    <!--External JavaScript file-->
     <script src="script.js"></script>
   </body>
 </html>
