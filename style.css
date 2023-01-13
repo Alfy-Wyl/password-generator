@@ -9,18 +9,12 @@ body,
 .wrapper {
   height: 100%;
   margin: 0;
-  padding: 0;
+  padding: 30px, 20px, 0px, 20px;
 }
 
 body {
   font-family: sans-serif;
   background-color: #f9fbfd;
-}
-
-.wrapper {
-  padding-top: 30px;
-  padding-left: 20px;
-  padding-right: 20px;
 }
 
 header {
@@ -39,7 +33,7 @@ header {
   font-size: 18px;
   margin: 0 auto;
   max-width: 800px;
-  padding: 80px 40px;
+  padding: 5px 20px;
 }
 
 .card-header::after {
@@ -72,13 +66,6 @@ header {
   clear: both;
 }
 
-.card-copy {
-  display: block;
-  height: 1px;
-  width: 100%;
-}
-
-
 .btn, .copy-result {
   border: none;
   background-color: hsl(360, 91%, 36%);
@@ -95,11 +82,17 @@ header {
   cursor: pointer;
 }
 
-button[disabled] {
-  cursor: default;
-  background: #c0c7cf;
+.btn:hover,
+.copy-result:hover {
+  background-color: indianred;
 }
 
+.btn:active,
+.copy-result:active {
+  background-color:hsl(360, 91%, 36%);
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
 
 .float-right {
   float: right;
