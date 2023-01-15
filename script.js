@@ -185,3 +185,67 @@ function getRandom(arr) {
   return randomElement;
 
 }
+
+
+// Function to generate password with user input preferences
+function generatePassword() {
+  let options = getPasswordOptions();
+  console.log(options);
+
+  // Create variable to store result using some JavaScript in-built methods
+  let result = []
+
+  let possibleCharacter = []
+
+  let guaranteedCharacter = []
+
+  if(options.hasSpecialCharacters) {
+    possibleCharacter = possibleCharacter.concat(specialCharacters);
+    guaranteedCharacter.push(getRandom(specialCharacters)) 
+  }
+
+  if(options.hasNumericCharacters) {
+    possibleCharacter = possibleCharacter.concat(numericCharacters);
+    guaranteedCharacter.push(getRandom(numericCharacters))
+  }
+
+  if(options.hasLowerCasedCharacters) {
+    possibleCharacter = possibleCharacter.concat(lowerCasedCharacters);
+    guaranteedCharacter.push(getRandom(lowerCasedCharacters))
+  }
+
+  if(options.hasUpperCasedCharacters) {
+    possibleCharacter = possibleCharacter.concat(upperCasedCharacters);
+    guaranteedCharacter.push(getRandom(upperCasedCharacters))
+  }
+
+
+  // Create a For Loop to generate random characters
+
+  for(let i = 0; i < options.length; i++) {
+    var generated = getRandom(possibleCharacter);
+    console.log(generated);
+    result.push(generated);
+  }
+
+  console.log(result);
+
+  return result.join("")
+}
+
+
+// Get references to the #generate element
+var generateBtn = document.querySelector('#generate');
+
+let password
+// Write password to the #password input
+function writePassword() {
+  password = generatePassword();
+  var passwordText = document.querySelector('#password');
+
+  passwordText.value = password;
+}
+
+// Add event listener to generate button
+generateBtn.addEventListener('click', writePassword);
+
