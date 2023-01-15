@@ -174,3 +174,14 @@ function getPasswordOptions() {
   return passwordOptions;
 
 }
+
+// Function for getting a random element from an array
+function getRandom(arr) {
+
+  // Create a random value from the array provided
+  let randomValue = Math.floor(Math.random() * arr.length)
+  let randomElement = arr[randomValue];
+
+  return randomElement;
+
+}
