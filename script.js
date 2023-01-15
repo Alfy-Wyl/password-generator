@@ -147,7 +147,20 @@ function getPasswordOptions() {
     hasUpperCasedCharacters === false){
       alert(`Must select at least one character type`);
       return;
+  } 
+
+  // Create keys to handle password options
+  let passwordOptions = {
+    length: length,
+    hasSpecialCharacters: hasSpecialCharacters,
+    hasNumericCharacters: hasNumericCharacters,
+    hasLowerCasedCharacters: hasLowerCasedCharacters,
+    hasUpperCasedCharacters: hasUpperCasedCharacters
   }
+
+  console.log(passwordOptions);
+
+  return passwordOptions;
 
 }
 
@@ -164,7 +177,8 @@ function getRandom(arr) {
 
 // Function to generate password with user input
 function generatePassword() {
-  let action = getPasswordOptions();
+  let options = getPasswordOptions();
+  console.log(options);
 
   // Create variable to store result using some JavaScript in-built methods
   let result = []
@@ -193,6 +207,19 @@ function generatePassword() {
     guaranteedCharacter.push(getRandom(upperCasedCharacters))
   }
 
+
+  // Create a For Loop to generate random characters
+
+  for(let i = 0; i < options.length; i++) {
+    var generated = getRandom(possibleCharacter);
+    console.log(generated);
+    result.push(generated);
+  }
+
+  console.log(result);
+
+  return result.join("")
+
 }
 
 
@@ -209,4 +236,7 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener('click', writePassword);
+
+
+
 
