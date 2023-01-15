@@ -96,7 +96,7 @@ function getPasswordOptions() {
   // Create variable to prompt user to input password length
   // Use parseInt property to allow values to be parsed as a number
   let length = parseInt(
-    prompt("Input character length of your password.")
+    prompt("Input character length of your password. Must be between 10 - 125")
   )
 
   // Create If Statements to set criteria for password to be generated
@@ -114,8 +114,8 @@ function getPasswordOptions() {
   }
 
   // Third If Statement to handle minimum character length user inputs
-  if(length >= 125) {
-    alert(`ERROR! character length must be less than 125 characters long`);
+  if(length > 125) {
+    alert(`ERROR! character length must be atmost 125 characters long`);
     return;
   }
 
@@ -236,7 +236,4 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener('click', writePassword);
-
-
-
 
