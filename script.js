@@ -112,6 +112,7 @@ function getPasswordOptions() {
     alert(`ERROR! character length must be at least 10 characters long`);
     return;
   }
+
   // Third If Statement to handle minimum character length user inputs
   if(length >= 125) {
     alert(`ERROR! character length must be less than 125 characters long`);
@@ -119,30 +120,25 @@ function getPasswordOptions() {
   }
 
   
-
   // Create variable to allow user choose to include special characters in password or not
   let hasSpecialCharacters = confirm (
     "Click OK to confirm or CANCEL to decline special characters"
   )
-
 
   // Create variable to allow user choose to include numeric characters in password or not
   let hasNumericCharacters = confirm (
     "Click OK to confirm or CANCEL to decline numeric characters"
   )
 
-
   // Create variable to allow user choose to include lower cased characters in password or not
   let hasLowerCasedCharacters = confirm (
     "Click OK to confirm or CANCEL to decline lower cased characters"
   )
 
-
   // Create variable to allow user choose to include upper cased characters in password or not
   let hasUpperCasedCharacters = confirm (
     "Click OK to confirm or CANCEL to decline upper cased characters"
   )
-
 
   // Use Logical Operators to allow user select at least one character type to generate password
   if(hasSpecialCharacters === false &&
@@ -170,12 +166,35 @@ function getRandom(arr) {
 function generatePassword() {
   let action = getPasswordOptions();
 
+  // Create variable to store result using some JavaScript in-built methods
+  let result = []
+
+  let possibleCharacter = []
+
+  let guaranteedCharacter = []
+
+  if(options.hasSpecialCharacters) {
+    possibleCharacter = possibleCharacter.concat(specialCharacters);
+    guaranteedCharacter.push(getRandom(specialCharacters)) 
+  }
+
+  if(options.hasNumericCharacters) {
+    possibleCharacter = possibleCharacter.concat(numericCharacters);
+    guaranteedCharacter.push(getRandom(numericCharacters))
+  }
+
+  if(options.hasLowerCasedCharacters) {
+    possibleCharacter = possibleCharacter.concat(lowerCasedCharacters);
+    guaranteedCharacter.push(getRandom(lowerCasedCharacters))
+  }
+
+  if(options.hasUpperCasedCharacters) {
+    possibleCharacter = possibleCharacter.concat(upperCasedCharacters);
+    guaranteedCharacter.push(getRandom(upperCasedCharacters))
+  }
+
 }
 
-// Function to enable user copy generated password
-function copyResult() {
-
-}
 
 // Get references to the #generate element
 var generateBtn = document.querySelector('#generate');
@@ -191,6 +210,3 @@ function writePassword() {
 // Add event listener to generate button
 generateBtn.addEventListener('click', writePassword);
 
-
-// Create code to to enable user copy the generated password
-// Add event listener to copy button
