@@ -114,13 +114,13 @@ function getPasswordOptions() {
 
     // 2. If Statement to handle minimum character length user inputs to generate password
     if(length < 10) {
-      alert(`Error: character length must be ateast 10 characters long`);
+      alert(`Error: password length must be ateast 10 characters long`);
       
     }
 
     // 3. If Statement to handle maximum character length user inputs to generate password
     if(length > 65) {
-      alert(`Error: character length must be atmost 65 characters long`);
+      alert(`Error: password length must be atmost 65 characters long`);
     
     }
 
@@ -186,6 +186,7 @@ function getRandom(arr) {
 
 }
 
+// This section ensures generated password follow users preferences
 
 // Function to generate password with user input preferences
 function generatePassword() {
@@ -223,9 +224,9 @@ function generatePassword() {
   // Create a For Loop to generate random characters
 
   for(let i = 0; i < options.length; i++) {
-    var generated = getRandom(possibleCharacter);
-    console.log(generated);
-    result.push(generated);
+    var generatedPassword = getRandom(possibleCharacter);
+    console.log(generatedPassword);
+    result.push(generatedPassword);
   }
 
   console.log(result);
@@ -249,3 +250,22 @@ function writePassword() {
 // Add event listener to generate button
 generateBtn.addEventListener('click', writePassword);
 
+
+
+// This section contains extra feature to copy generated password to clipboard
+// Student decided to go an extra mile for better user experience
+
+// Create a variable to target the copy button in the HTML
+const button = document.querySelector(".copy-result");
+
+// Use the async and await keywords and create a function to copy generated password to clipboard
+async function copyToClipbpard() {
+  if(!password) return;
+  await navigator.clipboard.writeText(password);
+  alert("Password Copied Successfully");
+}
+
+// Create an event listener to copy password to clipboard when the copy button is clicked
+button.addEventListener("click", () => {
+  copyToClipbpard();  
+});
