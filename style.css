@@ -48,6 +48,7 @@ header {
   min-height: 100px;
 }
 
+/*added style to new feature "copy"*/
 .card-footer, .card-copy {
   text-align: center;
 }
@@ -66,6 +67,7 @@ header {
   clear: both;
 }
 
+/*added style to new feature "copy"*/
 .btn, .copy-result {
   border: none;
   background-color: hsl(360, 91%, 36%);
@@ -82,11 +84,13 @@ header {
   cursor: pointer;
 }
 
+/*added hover effect to generated password button and new feature "copy" */
 .btn:hover,
 .copy-result:hover {
   background-color: indianred;
 }
 
+/*added click effect to generate password button and new feature "copy" */
 .btn:active,
 .copy-result:active {
   background-color:hsl(360, 91%, 36%);
