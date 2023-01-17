@@ -56,6 +56,8 @@ MIT
 
 ## Link
 
+https://alfy-wyl.github.io/password-generator/
+
 
 
 ## Screenshot
